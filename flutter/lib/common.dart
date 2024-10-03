@@ -2484,7 +2484,7 @@ Future<void> onActiveWindowChanged() async {
     } catch (err) {
       debugPrintStack(label: "$err");
     } finally {
-      debugPrint("Start closing Lidesk...");
+      debugPrint("Start closing LiDesk...");
       await windowManager.setPreventClose(false);
       await windowManager.close();
       if (isMacOS) {
