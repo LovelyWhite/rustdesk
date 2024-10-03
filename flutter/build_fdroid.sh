@@ -3,9 +3,9 @@
 set -x
 
 #
-# Script to build F-Droid release of Lidesk
+# Script to build F-Droid release of LiDesk
 #
-# Copyright (C) 2024, The Lidesk Authors
+# Copyright (C) 2024, The LiDesk Authors
 #               2024, Vasyl Gello <vasek.gello@gmail.com>
 #
 
@@ -271,7 +271,7 @@ prebuild)
 		fi
 	fi
 
-	# Patch the Lidesk sources
+	# Patch the LiDesk sources
 
 	git apply res/fdroid/patches/*.patch
 

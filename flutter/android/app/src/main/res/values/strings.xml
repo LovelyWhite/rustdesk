@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Lidesk</string>
-    <string name="accessibility_service_description">Allow other devices to control your phone using virtual touch, when Lidesk screen sharing is established</string>
+    <string name="app_name">LiDesk</string>
+    <string name="accessibility_service_description">Allow other devices to control your phone using virtual touch, when LiDesk screen sharing is established</string>
 </resources>

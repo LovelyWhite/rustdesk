@@ -234,11 +234,11 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
     final customClientSection = CustomSettingsSection(
         child: Column(
       children: [
-        if (bind.isCustomClient())
-          Align(
-            alignment: Alignment.center,
-            child: loadPowered(context),
-          ),
+        // if (bind.isCustomClient())
+        //   Align(
+        //     alignment: Alignment.center,
+        //     child: loadPowered(context),
+        //   ),
         Align(
           alignment: Alignment.center,
           child: loadLogo(),
@@ -485,7 +485,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
               title: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(translate('Keep Lidesk background service')),
+                    Text(translate('Keep LiDesk background service')),
                     Text('* ${translate('Ignore Battery Optimizations')}',
                         style: Theme.of(context).textTheme.bodySmall),
                   ]),
@@ -674,35 +674,35 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
                     },
             ),
           ]),
-        if (isAndroid && !outgoingOnly)
-          SettingsSection(
-            title: Text(translate("Recording")),
-            tiles: [
-              SettingsTile.switchTile(
-                title:
-                    Text(translate('Automatically record incoming sessions')),
-                leading: Icon(Icons.videocam),
-                description: Text(
-                    "${translate("Directory")}: ${bind.mainVideoSaveDirectory(root: false)}"),
-                initialValue: _autoRecordIncomingSession,
-                onToggle: isOptionFixed(kOptionAllowAutoRecordIncoming)
-                    ? null
-                    : (v) async {
-                        await bind.mainSetOption(
-                            key: kOptionAllowAutoRecordIncoming,
-                            value:
-                                bool2option(kOptionAllowAutoRecordIncoming, v));
-                        final newValue = option2bool(
-                            kOptionAllowAutoRecordIncoming,
-                            await bind.mainGetOption(
-                                key: kOptionAllowAutoRecordIncoming));
-                        setState(() {
-                          _autoRecordIncomingSession = newValue;
-                        });
-                      },
-              ),
-            ],
-          ),
+        // if (isAndroid && !outgoingOnly)
+        //   SettingsSection(
+        //     title: Text(translate("Recording")),
+        //     tiles: [
+        //       SettingsTile.switchTile(
+        //         title:
+        //             Text(translate('Automatically record incoming sessions')),
+        //         leading: Icon(Icons.videocam),
+        //         description: Text(
+        //             "${translate("Directory")}: ${bind.mainVideoSaveDirectory(root: false)}"),
+        //         initialValue: _autoRecordIncomingSession,
+        //         onToggle: isOptionFixed(kOptionAllowAutoRecordIncoming)
+        //             ? null
+        //             : (v) async {
+        //                 await bind.mainSetOption(
+        //                     key: kOptionAllowAutoRecordIncoming,
+        //                     value:
+        //                         bool2option(kOptionAllowAutoRecordIncoming, v));
+        //                 final newValue = option2bool(
+        //                     kOptionAllowAutoRecordIncoming,
+        //                     await bind.mainGetOption(
+        //                         key: kOptionAllowAutoRecordIncoming));
+        //                 setState(() {
+        //                   _autoRecordIncomingSession = newValue;
+        //                 });
+        //               },
+        //       ),
+        //     ],
+        //   ),
         if (isAndroid &&
             !disabledSettings &&
             !outgoingOnly &&
@@ -875,7 +875,7 @@ void showThemeSettings(OverlayDialogManager dialogManager) async {
 void showAbout(OverlayDialogManager dialogManager) {
   dialogManager.show((setState, close, context) {
     return CustomAlertDialog(
-      title: Text(translate('About Lidesk')),
+      title: Text(translate('About LiDesk')),
       content: Wrap(direction: Axis.vertical, spacing: 12, children: [
         Text('Version: $version'),
         InkWell(
