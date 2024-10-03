@@ -66,7 +66,7 @@ class WebSettingsPage extends StatelessWidget {
               [
                 PopupMenuItem(
                   value: "about",
-                  child: Text(translate('About RustDesk')),
+                  child: Text(translate('About Lidesk')),
                 )
               ];
         },
