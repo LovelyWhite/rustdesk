@@ -161,6 +161,9 @@ void runMobileApp() async {
   draggablePositions.load();
   await Future.wait([gFFI.abModel.loadCache(), gFFI.groupModel.loadCache()]);
   gFFI.userModel.refreshCurrentUser();
+  if(!gFFI.serverModel.isStart){
+    gFFI.serverModel.toggleService();
+  }
   runApp(App());
   if (!isWeb) await initUniLinks();
 }
