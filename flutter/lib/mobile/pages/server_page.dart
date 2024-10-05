@@ -25,7 +25,7 @@ class ServerPage extends StatefulWidget implements PageShape {
   @override
   final appBarActions = (!bind.isDisableSettings() &&
           bind.mainGetBuildinOption(key: kOptionHideSecuritySetting) != 'Y')
-      ? [_DropDownAction()]
+      ? [] //_DropDownAction()
       : [];
 
   ServerPage({Key? key}) : super(key: key);
