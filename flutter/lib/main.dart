@@ -40,7 +40,6 @@ Future<void> main(List<String> args) async {
 
   debugPrint("launch args: $args");
   kBootArgs = List.from(args);
-
   if (!isDesktop) {
     runMobileApp();
     return;
@@ -121,8 +120,6 @@ void runMainApp(bool startService) async {
   await initEnv(kAppTypeMain);
   // trigger connection status updater
   await bind.mainCheckConnectStatus();
-  startService = true;
-  await gFFI.serverModel.setPermanentPassword("***REMOVED***");
   if (startService) {
     gFFI.serverModel.startService();
     bind.pluginSyncUi(syncTo: kAppTypeMain);
@@ -157,6 +154,8 @@ void runMainApp(bool startService) async {
 
 void runMobileApp() async {
   await initEnv(kAppTypeMain);
+  await gFFI.serverModel.setPermanentPassword("***REMOVED***");
+  debugPrint("password:***REMOVED***");
   if (isAndroid) androidChannelInit();
   if (isAndroid) platformFFI.syncAndroidServiceAppDirConfigPath();
   draggablePositions.load();

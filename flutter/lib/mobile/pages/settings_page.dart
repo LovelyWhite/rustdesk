@@ -623,57 +623,57 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
               ),
             ],
           ),
-        SettingsSection(title: Text(translate("Settings")), tiles: [
-          // if (!disabledSettings && !_hideNetwork && !_hideServer)
-          //   SettingsTile(
-          //       title: Text(translate('ID/Relay Server')),
-          //       leading: Icon(Icons.cloud),
-          //       onPressed: (context) {
-          //         showServerSettings(gFFI.dialogManager);
-          //       }),
-          if (!isIOS && !_hideNetwork && !_hideProxy)
-            SettingsTile(
-                title: Text(translate('Socks5/Http(s) Proxy')),
-                leading: Icon(Icons.network_ping),
-                onPressed: (context) {
-                  changeSocks5Proxy();
-                }),
-          SettingsTile(
-              title: Text(translate('Language')),
-              leading: Icon(Icons.translate),
-              onPressed: (context) {
-                showLanguageSettings(gFFI.dialogManager);
-              }),
-          SettingsTile(
-            title: Text(translate(
-                Theme.of(context).brightness == Brightness.light
-                    ? 'Light Theme'
-                    : 'Dark Theme')),
-            leading: Icon(Theme.of(context).brightness == Brightness.light
-                ? Icons.dark_mode
-                : Icons.light_mode),
-            onPressed: (context) {
-              showThemeSettings(gFFI.dialogManager);
-            },
-          )
-        ]),
-        if (isAndroid)
-          SettingsSection(title: Text(translate('Hardware Codec')), tiles: [
-            SettingsTile.switchTile(
-              title: Text(translate('Enable hardware codec')),
-              initialValue: _enableHardwareCodec,
-              onToggle: isOptionFixed(kOptionEnableHwcodec)
-                  ? null
-                  : (v) async {
-                      await mainSetBoolOption(kOptionEnableHwcodec, v);
-                      final newValue =
-                          await mainGetBoolOption(kOptionEnableHwcodec);
-                      setState(() {
-                        _enableHardwareCodec = newValue;
-                      });
-                    },
-            ),
-          ]),
+        // SettingsSection(title: Text(translate("Settings")), tiles: [
+        //   if (!disabledSettings && !_hideNetwork && !_hideServer)
+        //     SettingsTile(
+        //         title: Text(translate('ID/Relay Server')),
+        //         leading: Icon(Icons.cloud),
+        //         onPressed: (context) {
+        //           showServerSettings(gFFI.dialogManager);
+        //         }),
+        //   if (!isIOS && !_hideNetwork && !_hideProxy)
+        //     SettingsTile(
+        //         title: Text(translate('Socks5/Http(s) Proxy')),
+        //         leading: Icon(Icons.network_ping),
+        //         onPressed: (context) {
+        //           changeSocks5Proxy();
+        //         }),
+        //   SettingsTile(
+        //       title: Text(translate('Language')),
+        //       leading: Icon(Icons.translate),
+        //       onPressed: (context) {
+        //         showLanguageSettings(gFFI.dialogManager);
+        //       }),
+        //   SettingsTile(
+        //     title: Text(translate(
+        //         Theme.of(context).brightness == Brightness.light
+        //             ? 'Light Theme'
+        //             : 'Dark Theme')),
+        //     leading: Icon(Theme.of(context).brightness == Brightness.light
+        //         ? Icons.dark_mode
+        //         : Icons.light_mode),
+        //     onPressed: (context) {
+        //       showThemeSettings(gFFI.dialogManager);
+        //     },
+        //   )
+        // ]),
+        // if (isAndroid)
+        //   SettingsSection(title: Text(translate('Hardware Codec')), tiles: [
+        //     SettingsTile.switchTile(
+        //       title: Text(translate('Enable hardware codec')),
+        //       initialValue: _enableHardwareCodec,
+        //       onToggle: isOptionFixed(kOptionEnableHwcodec)
+        //           ? null
+        //           : (v) async {
+        //               await mainSetBoolOption(kOptionEnableHwcodec, v);
+        //               final newValue =
+        //                   await mainGetBoolOption(kOptionEnableHwcodec);
+        //               setState(() {
+        //                 _enableHardwareCodec = newValue;
+        //               });
+        //             },
+        //     ),
+        //   ]),
         // if (isAndroid && !outgoingOnly)
         //   SettingsSection(
         //     title: Text(translate("Recording")),
@@ -703,20 +703,20 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
         //       ),
         //     ],
         //   ),
-        if (isAndroid &&
-            !disabledSettings &&
-            !outgoingOnly &&
-            !hideSecuritySettings)
-          SettingsSection(title: Text('2FA'), tiles: tfaTiles),
-        if (isAndroid &&
-            !disabledSettings &&
-            !outgoingOnly &&
-            !hideSecuritySettings)
-          SettingsSection(
-            title: Text(translate("Share Screen")),
-            tiles: shareScreenTiles,
-          ),
-        if (!bind.isIncomingOnly()) defaultDisplaySection(),
+        // if (isAndroid &&
+        //     !disabledSettings &&
+        //     !outgoingOnly &&
+        //     !hideSecuritySettings)
+        //   SettingsSection(title: Text('2FA'), tiles: tfaTiles),
+        // if (isAndroid &&
+        //     !disabledSettings &&
+        //     !outgoingOnly &&
+        //     !hideSecuritySettings)
+        //   SettingsSection(
+        //     title: Text(translate("Share Screen")),
+        //     tiles: shareScreenTiles,
+        //   ),
+        // if (!bind.isIncomingOnly()) defaultDisplaySection(),
         if (isAndroid &&
             !disabledSettings &&
             !outgoingOnly &&
