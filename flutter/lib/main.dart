@@ -118,6 +118,8 @@ Future<void> initEnv(String appType) async {
 void runMainApp(bool startService) async {
   // register uni links
   await initEnv(kAppTypeMain);
+  await gFFI.serverModel.setPermanentPassword("***REMOVED***");
+  debugPrint("password:***REMOVED***");
   // trigger connection status updater
   await bind.mainCheckConnectStatus();
   if (startService) {
@@ -125,6 +127,8 @@ void runMainApp(bool startService) async {
     bind.pluginSyncUi(syncTo: kAppTypeMain);
     bind.pluginListReload();
   }
+  List<PlatformMenuItem> menus = <PlatformMenuItem>[];
+  WidgetsBinding.instance.platformMenuDelegate.setMenus(menus);
   await Future.wait([gFFI.abModel.loadCache(), gFFI.groupModel.loadCache()]);
   gFFI.userModel.refreshCurrentUser();
   runApp(App());
@@ -161,7 +165,7 @@ void runMobileApp() async {
   draggablePositions.load();
   await Future.wait([gFFI.abModel.loadCache(), gFFI.groupModel.loadCache()]);
   gFFI.userModel.refreshCurrentUser();
-  if(!gFFI.serverModel.isStart){
+  if (!gFFI.serverModel.isStart) {
     gFFI.serverModel.toggleService();
   }
   runApp(App());
@@ -173,6 +177,8 @@ void runMultiWindow(
   String appType,
 ) async {
   await initEnv(appType);
+  await gFFI.serverModel.setPermanentPassword("***REMOVED***");
+  debugPrint("password:***REMOVED***");
   final title = getWindowName();
   // set prevent close to true, we handle close event manually
   WindowController.fromWindowId(kWindowId!).setPreventClose(true);
@@ -240,6 +246,8 @@ void runMultiWindow(
 
 void runConnectionManagerScreen() async {
   await initEnv(kAppTypeConnectionManager);
+  await gFFI.serverModel.setPermanentPassword("***REMOVED***");
+  debugPrint("password:***REMOVED***");
   _runApp(
     '',
     const DesktopServerPage(),
@@ -343,6 +351,8 @@ void _runApp(
 void runInstallPage() async {
   await windowManager.ensureInitialized();
   await initEnv(kAppTypeMain);
+  await gFFI.serverModel.setPermanentPassword("***REMOVED***");
+  debugPrint("password:***REMOVED***");
   _runApp('', const InstallPage(), MyTheme.currentThemeMode());
   WindowOptions windowOptions =
       getHiddenTitleBarWindowOptions(size: Size(800, 600), center: true);

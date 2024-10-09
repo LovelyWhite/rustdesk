@@ -73,7 +73,7 @@ class DesktopSettingPage extends StatefulWidget {
     if (!isWeb && !bind.isIncomingOnly() && bind.pluginFeatureIsEnabled())
       SettingsTabKey.plugin,
     if (!bind.isDisableAccount()) SettingsTabKey.account,
-    SettingsTabKey.about,
+    // SettingsTabKey.about,
   ];
 
   DesktopSettingPage({Key? key, required this.initialTabkey}) : super(key: key);
@@ -360,9 +360,9 @@ class _GeneralState extends State<_General> {
             _Card(title: 'Language', children: [language()]),
             if (!isWeb) hwcodec(),
             if (!isWeb) audio(context),
-            if (!isWeb) record(context),
+            // if (!isWeb) record(context),
             if (!isWeb) WaylandCard(),
-            other()
+            // other()
           ],
         ).marginOnly(bottom: _kListViewBottomMargin));
   }
@@ -710,10 +710,10 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
                   absorbing: locked,
                   child: Column(children: [
                     permissions(context),
-                    password(context),
-                    _Card(title: '2FA', children: [tfa()]),
-                    _Card(title: 'ID', children: [changeId()]),
-                    more(context),
+                    // password(context),
+                    // _Card(title: '2FA', children: [tfa()]),
+                    // _Card(title: 'ID', children: [changeId()]),
+                    // more(context),
                   ]),
                 ),
               ],
