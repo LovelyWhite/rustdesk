@@ -66,9 +66,9 @@ class DesktopSettingPage extends StatefulWidget {
         !bind.isDisableSettings() &&
         bind.mainGetBuildinOption(key: kOptionHideSecuritySetting) != 'Y')
       SettingsTabKey.safety,
-    if (!bind.isDisableSettings() &&
-        bind.mainGetBuildinOption(key: kOptionHideNetworkSetting) != 'Y')
-      SettingsTabKey.network,
+    // if (!bind.isDisableSettings() &&
+    //     bind.mainGetBuildinOption(key: kOptionHideNetworkSetting) != 'Y')
+    //   SettingsTabKey.network,
     if (!bind.isIncomingOnly()) SettingsTabKey.display,
     if (!isWeb && !bind.isIncomingOnly() && bind.pluginFeatureIsEnabled())
       SettingsTabKey.plugin,
@@ -1385,7 +1385,7 @@ class _NetworkState extends State<_Network> with AutomaticKeepAliveClientMixin {
               AbsorbPointer(
                 absorbing: locked,
                 child: Column(children: [
-                  if (!hideServer) server(enabled),
+                  // if (!hideServer) server(enabled),
                   if (!hideProxy)
                     _Card(title: 'Proxy', children: [
                       _Button('Socks5/Http(s) Proxy', changeSocks5Proxy,

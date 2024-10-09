@@ -127,8 +127,6 @@ void runMainApp(bool startService) async {
     bind.pluginSyncUi(syncTo: kAppTypeMain);
     bind.pluginListReload();
   }
-  List<PlatformMenuItem> menus = <PlatformMenuItem>[];
-  WidgetsBinding.instance.platformMenuDelegate.setMenus(menus);
   await Future.wait([gFFI.abModel.loadCache(), gFFI.groupModel.loadCache()]);
   gFFI.userModel.refreshCurrentUser();
   runApp(App());
