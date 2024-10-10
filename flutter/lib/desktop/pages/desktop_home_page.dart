@@ -626,22 +626,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                                   ])
                             ]
                           : <Widget>[]) +
-                      (help != null
-                          ? <Widget>[
-                              Center(
-                                  child: InkWell(
-                                      onTap: () async =>
-                                          await launchUrl(Uri.parse(link!)),
-                                      child: Text(
-                                        translate(help),
-                                        style: TextStyle(
-                                            decoration:
-                                                TextDecoration.underline,
-                                            color: Colors.white,
-                                            fontSize: 12),
-                                      )).marginOnly(top: 6)),
-                            ]
-                          : <Widget>[]))),
+                      (<Widget>[]))),
         ),
         if (closeButton != null && closeButton == true)
           Positioned(
