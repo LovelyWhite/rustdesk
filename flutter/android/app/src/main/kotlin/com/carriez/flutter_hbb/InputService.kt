@@ -314,25 +314,13 @@ class InputService : AccessibilityService() {
         if (Build.VERSION.SDK_INT < 33 || textToCommit == null) {
             ke = KeyEventConverter.toAndroidKeyEvent(keyEvent)
         }
+        Log.d(logTag, "keykeykey ${ke?.keyCode} ke.action:${ke?.action}")
         ke?.let { event ->
             if (tryHandleVolumeKeyEvent(event)) {
                 return
             } else if (tryHandlePowerKeyEvent(event)) {
                 return
             }
-        }
-
-        // Check if the F11 key is pressed
-        if (ke?.keyCode == KeyEventAndroid.KEYCODE_F11 && ke.action == KeyEventAndroid.ACTION_DOWN) {
-            // Perform the desired action when F11 is pressed
-            Log.d(logTag, "F11 key pressed")
-            // Add your custom action here
-            val intent = Intent()
-            intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-            val uri = Uri.fromParts("package", packageName, null)
-            intent.data = uri
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intent)
         }
 
         if (Build.VERSION.SDK_INT >= 33) {
@@ -384,7 +372,11 @@ class InputService : AccessibilityService() {
 
             KeyEventAndroid.KEYCODE_VOLUME_MUTE -> {
                 if (event.action == KeyEventAndroid.ACTION_DOWN) {
-                    volumeController.toggleMute(true, AudioManager.STREAM_SYSTEM)
+                    Log.d(logTag, "Mute key pressed")
+                    val intent = Intent(Settings.ACTION_SETTINGS)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+//                    volumeController.toggleMute(true, AudioManager.STREAM_SYSTEM)
                 }
                 return true
             }
