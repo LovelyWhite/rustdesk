@@ -964,6 +964,7 @@ makeMobileActionsOverlayEntry(VoidCallback? onHide, {FFI? ffi}) {
       height: overlayH,
       onBackPressed: session.inputModel.onMobileBack,
       onHomePressed: session.inputModel.onMobileHome,
+      onSettingPressed: session.inputModel.onMobileSetting,
       onRecentPressed: session.inputModel.onMobileApps,
       onHidePressed: onHide,
     );
