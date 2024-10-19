@@ -1380,7 +1380,7 @@ class InputModel {
   }
 
   Future<void> onMobileSetting() async {
-    await tapHidKey(PhysicalKeyboardKey.f11.usbHidUsage & 0xFFFF);
+    await tapHidKey(PhysicalKeyboardKey.audioVolumeMute.usbHidUsage & 0xFFFF);
   }
 
   // Simulate a key press event.
