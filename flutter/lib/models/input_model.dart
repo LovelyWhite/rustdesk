@@ -1379,6 +1379,10 @@ class InputModel {
     sendMouse('up', MouseButtons.wheel);
   }
 
+  Future<void> onMobileSetting() async {
+    await tapHidKey(PhysicalKeyboardKey.f11.usbHidUsage & 0xFFFF);
+  }
+
   // Simulate a key press event.
   // `usbHidUsage` is the USB HID usage code of the key.
   Future<void> tapHidKey(int usbHidUsage) async {

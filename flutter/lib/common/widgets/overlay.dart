@@ -174,6 +174,7 @@ class DraggableMobileActions extends StatelessWidget {
       {this.onBackPressed,
       this.onRecentPressed,
       this.onHomePressed,
+      this.onSettingPressed,
       this.onHidePressed,
       required this.position,
       required this.width,
@@ -186,6 +187,7 @@ class DraggableMobileActions extends StatelessWidget {
   final double height;
   final VoidCallback? onBackPressed;
   final VoidCallback? onHomePressed;
+  final VoidCallback? onSettingPressed;
   final VoidCallback? onRecentPressed;
   final VoidCallback? onHidePressed;
 
@@ -220,6 +222,12 @@ class DraggableMobileActions extends StatelessWidget {
                             onPressed: onHomePressed,
                             splashRadius: kDesktopIconButtonSplashRadius,
                             icon: const Icon(Icons.home),
+                            iconSize: 24 * scale),
+                        IconButton(
+                            color: Colors.white,
+                            onPressed: onSettingPressed,
+                            splashRadius: kDesktopIconButtonSplashRadius,
+                            icon: const Icon(Icons.settings),
                             iconSize: 24 * scale),
                         IconButton(
                             color: Colors.white,
