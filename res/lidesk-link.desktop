@@ -1,10 +1,10 @@
 [Desktop Entry]
 Name=LiDeskURL Scheme Handler
 NoDisplay=true
-MimeType=x-scheme-handler/rustdesk;
-TryExec=rustdesk
-Exec=rustdesk %u
-Icon=rustdesk
+MimeType=x-scheme-handler/lidesk;
+TryExec=lidesk
+Exec=lidesk %u
+Icon=lidesk
 Terminal=false
 Type=Application
 StartupNotify=false

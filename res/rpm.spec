@@ -25,20 +25,20 @@ mkdir -p %{buildroot}/usr/share/icons/hicolor/256x256/apps/
 mkdir -p %{buildroot}/usr/share/icons/hicolor/scalable/apps/
 install -m 755 $HBB/target/release/rustdesk %{buildroot}/usr/bin/rustdesk
 install $HBB/libsciter-gtk.so %{buildroot}/usr/lib/rustdesk/libsciter-gtk.so
-install $HBB/res/rustdesk.service %{buildroot}/usr/share/rustdesk/files/
+install $HBB/res/lidesk.service %{buildroot}/usr/share/rustdesk/files/
 install $HBB/res/128x128@2x.png %{buildroot}/usr/share/icons/hicolor/256x256/apps/rustdesk.png
 install $HBB/res/scalable.svg %{buildroot}/usr/share/icons/hicolor/scalable/apps/rustdesk.svg
-install $HBB/res/rustdesk.desktop %{buildroot}/usr/share/rustdesk/files/
-install $HBB/res/rustdesk-link.desktop %{buildroot}/usr/share/rustdesk/files/
+install $HBB/res/lidesk.desktop %{buildroot}/usr/share/rustdesk/files/
+install $HBB/res/lidesk-link.desktop %{buildroot}/usr/share/rustdesk/files/
 
 %files
 /usr/bin/rustdesk
 /usr/lib/rustdesk/libsciter-gtk.so
-/usr/share/rustdesk/files/rustdesk.service
+/usr/share/rustdesk/files/lidesk.service
 /usr/share/icons/hicolor/256x256/apps/rustdesk.png
 /usr/share/icons/hicolor/scalable/apps/rustdesk.svg
-/usr/share/rustdesk/files/rustdesk.desktop
-/usr/share/rustdesk/files/rustdesk-link.desktop
+/usr/share/rustdesk/files/lidesk.desktop
+/usr/share/rustdesk/files/lidesk-link.desktop
 /usr/share/rustdesk/files/__pycache__/*
 
 %changelog
@@ -53,26 +53,26 @@ case "$1" in
   ;;
   2)
     # for upgrade
-    systemctl stop rustdesk || true
+    systemctl stop lidesk || true
   ;;
 esac
 
 %post
-cp /usr/share/rustdesk/files/rustdesk.service /etc/systemd/system/rustdesk.service
-cp /usr/share/rustdesk/files/rustdesk.desktop /usr/share/applications/
-cp /usr/share/rustdesk/files/rustdesk-link.desktop /usr/share/applications/
+cp /usr/share/rustdesk/files/lidesk.service /etc/systemd/system/lidesk.service
+cp /usr/share/rustdesk/files/lidesk.desktop /usr/share/applications/
+cp /usr/share/rustdesk/files/lidesk-link.desktop /usr/share/applications/
 systemctl daemon-reload
-systemctl enable rustdesk
-systemctl start rustdesk
+systemctl enable lidesk
+systemctl start lidesk
 update-desktop-database
 
 %preun
 case "$1" in
   0)
     # for uninstall
-    systemctl stop rustdesk || true
-    systemctl disable rustdesk || true
-    rm /etc/systemd/system/rustdesk.service || true
+    systemctl stop lidesk || true
+    systemctl disable lidesk || true
+    rm /etc/systemd/system/lidesk.service || true
   ;;
   1)
     # for upgrade
@@ -83,8 +83,8 @@ esac
 case "$1" in
   0)
     # for uninstall
-    rm /usr/share/applications/rustdesk.desktop || true
-    rm /usr/share/applications/rustdesk-link.desktop || true
+    rm /usr/share/applications/lidesk.desktop || true
+    rm /usr/share/applications/lidesk-link.desktop || true
     update-desktop-database
   ;;
   1)

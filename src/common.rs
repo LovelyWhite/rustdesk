@@ -897,6 +897,7 @@ pub fn get_api_server(api: String, custom: String) -> String {
         return api.to_owned();
     }
     let api = option_env!("API_SERVER").unwrap_or_default();
+    println!("API_SERVER value: {}", api);
     if !api.is_empty() {
         return api.into();
     }
