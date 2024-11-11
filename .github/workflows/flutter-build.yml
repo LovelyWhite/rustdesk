@@ -102,7 +102,7 @@ jobs:
         with:
           toolchain: ${{ env.SCITER_RUST_VERSION }}
           targets: ${{ matrix.job.target }}
-          components: "rustfmt"
+          components: 'rustfmt'
 
       - uses: Swatinem/rust-cache@v2
         with:
@@ -128,7 +128,6 @@ jobs:
         run: |
           if ! $VCPKG_ROOT/vcpkg \
             install \
-            --triplet ${{ matrix.job.vcpkg-triplet }} \
             --x-install-root="$VCPKG_ROOT/installed"; then
             find "${VCPKG_ROOT}/" -name "*.log" | while read -r _1; do
               echo "$_1:"
@@ -139,6 +138,8 @@ jobs:
             done
             exit 1
           fi
+
+      - name: Show version information (Rust, cargo, Clang)
         shell: bash
 
       - name: Build rustdesk
