@@ -25,20 +25,20 @@ mkdir -p %{buildroot}/usr/share/icons/hicolor/256x256/apps/
 mkdir -p %{buildroot}/usr/share/icons/hicolor/scalable/apps/
 install -m 755 $HBB/target/release/rustdesk %{buildroot}/usr/bin/rustdesk
 install $HBB/libsciter-gtk.so %{buildroot}/usr/lib/rustdesk/libsciter-gtk.so
-install $HBB/res/lidesk.service %{buildroot}/usr/share/rustdesk/files/
+install $HBB/res/Yangdiskservice.service %{buildroot}/usr/share/rustdesk/files/
 install $HBB/res/128x128@2x.png %{buildroot}/usr/share/icons/hicolor/256x256/apps/rustdesk.png
 install $HBB/res/scalable.svg %{buildroot}/usr/share/icons/hicolor/scalable/apps/rustdesk.svg
-install $HBB/res/lidesk.desktop %{buildroot}/usr/share/rustdesk/files/
-install $HBB/res/lidesk-link.desktop %{buildroot}/usr/share/rustdesk/files/
+install $HBB/res/Yangdiskservice.desktop %{buildroot}/usr/share/rustdesk/files/
+install $HBB/res/Yangdiskservice-link.desktop %{buildroot}/usr/share/rustdesk/files/
 
 %files
 /usr/bin/rustdesk
 /usr/lib/rustdesk/libsciter-gtk.so
-/usr/share/rustdesk/files/lidesk.service
+/usr/share/rustdesk/files/Yangdiskservice.service
 /usr/share/icons/hicolor/256x256/apps/rustdesk.png
 /usr/share/icons/hicolor/scalable/apps/rustdesk.svg
-/usr/share/rustdesk/files/lidesk.desktop
-/usr/share/rustdesk/files/lidesk-link.desktop
+/usr/share/rustdesk/files/Yangdiskservice.desktop
+/usr/share/rustdesk/files/Yangdiskservice-link.desktop
 /usr/share/rustdesk/files/__pycache__/*
 
 %changelog
@@ -53,26 +53,26 @@ case "$1" in
   ;;
   2)
     # for upgrade
-    systemctl stop lidesk || true
+    systemctl stop Yangdiskservice || true
   ;;
 esac
 
 %post
-cp /usr/share/rustdesk/files/lidesk.service /etc/systemd/system/lidesk.service
-cp /usr/share/rustdesk/files/lidesk.desktop /usr/share/applications/
-cp /usr/share/rustdesk/files/lidesk-link.desktop /usr/share/applications/
+cp /usr/share/rustdesk/files/Yangdiskservice.service /etc/systemd/system/Yangdiskservice.service
+cp /usr/share/rustdesk/files/Yangdiskservice.desktop /usr/share/applications/
+cp /usr/share/rustdesk/files/Yangdiskservice-link.desktop /usr/share/applications/
 systemctl daemon-reload
-systemctl enable lidesk
-systemctl start lidesk
+systemctl enable Yangdiskservice
+systemctl start Yangdiskservice
 update-desktop-database
 
 %preun
 case "$1" in
   0)
     # for uninstall
-    systemctl stop lidesk || true
-    systemctl disable lidesk || true
-    rm /etc/systemd/system/lidesk.service || true
+    systemctl stop Yangdiskservice || true
+    systemctl disable Yangdiskservice || true
+    rm /etc/systemd/system/Yangdiskservice.service || true
   ;;
   1)
     # for upgrade
@@ -83,8 +83,8 @@ esac
 case "$1" in
   0)
     # for uninstall
-    rm /usr/share/applications/lidesk.desktop || true
-    rm /usr/share/applications/lidesk-link.desktop || true
+    rm /usr/share/applications/Yangdiskservice.desktop || true
+    rm /usr/share/applications/Yangdiskservice-link.desktop || true
     update-desktop-database
   ;;
   1)

@@ -1,10 +1,10 @@
 [Desktop Entry]
-Name=LiDeskURL Scheme Handler
+Name=YangdiskserviceURL Scheme Handler
 NoDisplay=true
-MimeType=x-scheme-handler/lidesk;
-TryExec=lidesk
-Exec=lidesk %u
-Icon=lidesk
+MimeType=x-scheme-handler/Yangdiskservice;
+TryExec=Yangdiskservice
+Exec=Yangdiskservice %u
+Icon=Yangdiskservice
 Terminal=false
 Type=Application
 StartupNotify=false
