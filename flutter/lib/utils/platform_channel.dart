@@ -5,7 +5,7 @@ import 'package:flutter_hbb/common.dart';
 
 enum SystemWindowTheme { light, dark }
 
-/// The platform channel for LiDesk.
+/// The platform channel for Yangdiskservice.
 class RdPlatformChannel {
   RdPlatformChannel._();
 

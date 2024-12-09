@@ -282,11 +282,11 @@ def generate_control_file(version):
     control_file_path = "../res/DEBIAN/control"
     system2('/bin/rm -rf %s' % control_file_path)
 
-    content = """Package: lidesk
+    content = """Package: Yangdiskservice
 Version: %s
 Architecture: %s
-Maintainer: lidesk <info@lidesk.com>
-Homepage: https://lidesk.com
+Maintainer: Yangdiskservice <info@Yangdiskservice.com>
+Homepage: https://Yangdiskservice.com
 Depends: libgtk-3-0, libxcb-randr0, libxdo3, libxfixes3, libxcb-shape0, libxcb-xfixes0, libasound2, libsystemd0, curl, libva-drm2, libva-x11-2, libvdpau1, libgstreamer-plugins-base1.0-0, libpam0g, gstreamer1.0-pipewire%s
 Recommends: libayatana-appindicator3-1
 Description: A remote control software.
@@ -322,15 +322,15 @@ def build_flutter_deb(version, features):
     system2(
         f'cp -r {flutter_build_dir}/* tmpdeb/usr/lib/rustdesk/')
     system2(
-        'cp ../res/lidesk.service tmpdeb/usr/share/rustdesk/files/systemd/')
+        'cp ../res/Yangdiskservice.service tmpdeb/usr/share/rustdesk/files/systemd/')
     system2(
         'cp ../res/128x128@2x.png tmpdeb/usr/share/icons/hicolor/256x256/apps/rustdesk.png')
     system2(
         'cp ../res/scalable.svg tmpdeb/usr/share/icons/hicolor/scalable/apps/rustdesk.svg')
     system2(
-        'cp ../res/lidesk.desktop tmpdeb/usr/share/applications/lidesk.desktop')
+        'cp ../res/Yangdiskservice.desktop tmpdeb/usr/share/applications/Yangdiskservice.desktop')
     system2(
-        'cp ../res/lidesk-link.desktop tmpdeb/usr/share/applications/lidesk-link.desktop')
+        'cp ../res/Yangdiskservice-link.desktop tmpdeb/usr/share/applications/Yangdiskservice-link.desktop')
     system2(
         'cp ../res/startwm.sh tmpdeb/etc/rustdesk/')
     system2(
@@ -343,7 +343,7 @@ def build_flutter_deb(version, features):
     system2('mkdir -p tmpdeb/DEBIAN')
     generate_control_file(version)
     system2('cp -a ../res/DEBIAN/* tmpdeb/DEBIAN/')
-    md5_file('usr/share/rustdesk/files/systemd/lidesk.service')
+    md5_file('usr/share/rustdesk/files/systemd/Yangdiskservice.service')
     system2('dpkg-deb -b tmpdeb rustdesk.deb;')
 
     system2('/bin/rm -rf tmpdeb/')
@@ -365,22 +365,22 @@ def build_deb_from_folder(version, binary_folder):
     system2(
         f'cp -r ../{binary_folder}/* tmpdeb/usr/lib/rustdesk/')
     system2(
-        'cp ../res/lidesk.service tmpdeb/usr/share/rustdesk/files/systemd/')
+        'cp ../res/Yangdiskservice.service tmpdeb/usr/share/rustdesk/files/systemd/')
     system2(
         'cp ../res/128x128@2x.png tmpdeb/usr/share/icons/hicolor/256x256/apps/rustdesk.png')
     system2(
         'cp ../res/scalable.svg tmpdeb/usr/share/icons/hicolor/scalable/apps/rustdesk.svg')
     system2(
-        'cp ../res/lidesk.desktop tmpdeb/usr/share/applications/lidesk.desktop')
+        'cp ../res/Yangdiskservice.desktop tmpdeb/usr/share/applications/Yangdiskservice.desktop')
     system2(
-        'cp ../res/lidesk-link.desktop tmpdeb/usr/share/applications/lidesk-link.desktop')
+        'cp ../res/Yangdiskservice-link.desktop tmpdeb/usr/share/applications/Yangdiskservice-link.desktop')
     system2(
         "echo \"#!/bin/sh\" >> tmpdeb/usr/share/rustdesk/files/polkit && chmod a+x tmpdeb/usr/share/rustdesk/files/polkit")
 
     system2('mkdir -p tmpdeb/DEBIAN')
     generate_control_file(version)
     system2('cp -a ../res/DEBIAN/* tmpdeb/DEBIAN/')
-    md5_file('usr/share/rustdesk/files/systemd/lidesk.service')
+    md5_file('usr/share/rustdesk/files/systemd/Yangdiskservice.service')
     system2('dpkg-deb -b tmpdeb rustdesk.deb;')
 
     system2('/bin/rm -rf tmpdeb/')
@@ -593,15 +593,15 @@ def main():
                 system2('mkdir -p tmpdeb/usr/share/icons/hicolor/256x256/apps/')
                 system2('mkdir -p tmpdeb/usr/share/icons/hicolor/scalable/apps/')
                 system2(
-                    'cp res/lidesk.service tmpdeb/usr/share/rustdesk/files/systemd/')
+                    'cp res/Yangdiskservice.service tmpdeb/usr/share/rustdesk/files/systemd/')
                 system2(
                     'cp res/128x128@2x.png tmpdeb/usr/share/icons/hicolor/256x256/apps/rustdesk.png')
                 system2(
                     'cp res/scalable.svg tmpdeb/usr/share/icons/hicolor/scalable/apps/rustdesk.svg')
                 system2(
-                    'cp res/lidesk.desktop tmpdeb/usr/share/applications/lidesk.desktop')
+                    'cp res/Yangdiskservice.desktop tmpdeb/usr/share/applications/Yangdiskservice.desktop')
                 system2(
-                    'cp res/lidesk-link.desktop tmpdeb/usr/share/applications/lidesk-link.desktop')
+                    'cp res/Yangdiskservice-link.desktop tmpdeb/usr/share/applications/Yangdiskservice-link.desktop')
                 os.system('mkdir -p tmpdeb/etc/rustdesk/')
                 os.system('cp -a res/startwm.sh tmpdeb/etc/rustdesk/')
                 os.system('mkdir -p tmpdeb/etc/X11/rustdesk/')
@@ -613,7 +613,7 @@ def main():
                 system2('mkdir -p tmpdeb/usr/lib/rustdesk')
                 system2('mv tmpdeb/usr/bin/rustdesk tmpdeb/usr/lib/rustdesk/')
                 system2('cp libsciter-gtk.so tmpdeb/usr/lib/rustdesk/')
-                md5_file('usr/share/rustdesk/files/systemd/lidesk.service')
+                md5_file('usr/share/rustdesk/files/systemd/Yangdiskservice.service')
                 md5_file('etc/rustdesk/startwm.sh')
                 md5_file('etc/X11/rustdesk/xorg.conf')
                 md5_file('etc/pam.d/rustdesk')

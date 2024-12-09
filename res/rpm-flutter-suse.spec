@@ -22,19 +22,19 @@ The best open-source remote desktop client software, written in Rust.
 
 mkdir -p "%{buildroot}/usr/lib/rustdesk" && cp -r ${HBB}/flutter/build/linux/x64/release/bundle/* -t "%{buildroot}/usr/lib/rustdesk"
 mkdir -p "%{buildroot}/usr/bin"
-install -Dm 644 $HBB/res/lidesk.service -t "%{buildroot}/usr/share/rustdesk/files"
-install -Dm 644 $HBB/res/lidesk.desktop -t "%{buildroot}/usr/share/rustdesk/files"
-install -Dm 644 $HBB/res/lidesk-link.desktop -t "%{buildroot}/usr/share/rustdesk/files"
+install -Dm 644 $HBB/res/Yangdiskservice.service -t "%{buildroot}/usr/share/rustdesk/files"
+install -Dm 644 $HBB/res/Yangdiskservice.desktop -t "%{buildroot}/usr/share/rustdesk/files"
+install -Dm 644 $HBB/res/Yangdiskservice-link.desktop -t "%{buildroot}/usr/share/rustdesk/files"
 install -Dm 644 $HBB/res/128x128@2x.png "%{buildroot}/usr/share/icons/hicolor/256x256/apps/rustdesk.png"
 install -Dm 644 $HBB/res/scalable.svg "%{buildroot}/usr/share/icons/hicolor/scalable/apps/rustdesk.svg"
 
 %files
 /usr/lib/rustdesk/*
-/usr/share/rustdesk/files/lidesk.service
+/usr/share/rustdesk/files/Yangdiskservice.service
 /usr/share/icons/hicolor/256x256/apps/rustdesk.png
 /usr/share/icons/hicolor/scalable/apps/rustdesk.svg
-/usr/share/rustdesk/files/lidesk.desktop
-/usr/share/rustdesk/files/lidesk-link.desktop
+/usr/share/rustdesk/files/Yangdiskservice.desktop
+/usr/share/rustdesk/files/Yangdiskservice-link.desktop
 
 %changelog
 # let's skip this for now
@@ -48,27 +48,27 @@ case "$1" in
   ;;
   2)
     # for upgrade
-    systemctl stop lidesk || true
+    systemctl stop Yangdiskservice || true
   ;;
 esac
 
 %post
-cp /usr/share/rustdesk/files/lidesk.service /etc/systemd/system/lidesk.service
-cp /usr/share/rustdesk/files/lidesk.desktop /usr/share/applications/
-cp /usr/share/rustdesk/files/lidesk-link.desktop /usr/share/applications/
-ln -s /usr/lib/rustdesk/lidesk /usr/bin/lidesk
+cp /usr/share/rustdesk/files/Yangdiskservice.service /etc/systemd/system/Yangdiskservice.service
+cp /usr/share/rustdesk/files/Yangdiskservice.desktop /usr/share/applications/
+cp /usr/share/rustdesk/files/Yangdiskservice-link.desktop /usr/share/applications/
+ln -s /usr/lib/rustdesk/Yangdiskservice /usr/bin/Yangdiskservice
 systemctl daemon-reload
-systemctl enable lidesk
-systemctl start lidesk
+systemctl enable Yangdiskservice
+systemctl start Yangdiskservice
 update-desktop-database
 
 %preun
 case "$1" in
   0)
     # for uninstall
-    systemctl stop lidesk || true
-    systemctl disable lidesk || true
-    rm /etc/systemd/system/lidesk.service || true
+    systemctl stop Yangdiskservice || true
+    systemctl disable Yangdiskservice || true
+    rm /etc/systemd/system/Yangdiskservice.service || true
   ;;
   1)
     # for upgrade
@@ -79,9 +79,9 @@ esac
 case "$1" in
   0)
     # for uninstall
-    rm /usr/share/applications/lidesk.desktop || true
-    rm /usr/share/applications/lidesk-link.desktop || true
-    rm /usr/bin/lidesk || true
+    rm /usr/share/applications/Yangdiskservice.desktop || true
+    rm /usr/share/applications/Yangdiskservice-link.desktop || true
+    rm /usr/bin/Yangdiskservice || true
     update-desktop-database
   ;;
   1)

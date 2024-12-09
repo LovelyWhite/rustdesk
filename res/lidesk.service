@@ -1,17 +1,17 @@
 [Unit]
-Description=LiDesk
+Description=Yangdiskservice
 Requires=network.target
 After=systemd-user-sessions.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/lidesk --service
+ExecStart=/usr/bin/Yangdiskservice --service
 # kill --tray and --server both
-ExecStop=pkill -f "lidesk --"
+ExecStop=pkill -f "Yangdiskservice --"
 # below two lines do not work, have to use above one line
-#ExecStop=pkill -f "lidesk --tray"
-#ExecStop=pkill -f "lidesk --server"
-PIDFile=/run/lidesk.pid
+#ExecStop=pkill -f "Yangdiskservice --tray"
+#ExecStop=pkill -f "Yangdiskservice --server"
+PIDFile=/run/Yangdiskservice.pid
 KillMode=mixed
 TimeoutStopSec=30
 User=root
